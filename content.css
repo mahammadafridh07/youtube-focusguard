@@ -1,0 +1,113 @@
+/* ==========================================================================
+   YouTube FocusGuard - content.css
+   All rules here are gated behind classes that content.js toggles on
+   <html>, so nothing is hidden unless the matching setting is on.
+   ========================================================================== */
+
+/* ---------- Generic hidden marker used by content.js ---------- */
+.fg-hidden {
+  display: none !important;
+}
+
+/* ---------- Block Shorts ---------- */
+html.fg-block-shorts ytd-rich-shelf-renderer[is-shorts],
+html.fg-block-shorts ytd-reel-shelf-renderer,
+html.fg-block-shorts ytd-reel-item-renderer,
+html.fg-block-shorts ytd-mini-guide-entry-renderer a[title="Shorts"],
+html.fg-block-shorts ytd-guide-entry-renderer a[title="Shorts"],
+html.fg-block-shorts #shorts-container,
+html.fg-block-shorts [is-shorts] {
+  display: none !important;
+}
+
+/* Full-page overlay shown when the user opens a /shorts/ URL directly */
+#focusguard-shorts-block {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(15, 17, 21, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.focusguard-shorts-box {
+  max-width: 380px;
+  text-align: center;
+  color: #f2f3f5;
+  padding: 32px;
+  border: 1px solid #2a2e37;
+  border-radius: 16px;
+  background: #1a1d24;
+}
+
+.focusguard-shorts-box h2 {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+}
+
+.focusguard-shorts-box p {
+  color: #9aa0ac;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.focusguard-shorts-box button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.focusguard-shorts-box button:hover {
+  background: #dc2626;
+}
+
+/* ---------- Hide Recommendations ---------- */
+/* Watch page: related/up-next sidebar */
+html.fg-hide-recommendations #related,
+html.fg-hide-recommendations ytd-watch-next-secondary-results-renderer {
+  display: none !important;
+}
+
+/* Homepage feed (does not affect search results or the player) */
+html.fg-hide-recommendations ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
+html.fg-hide-recommendations ytd-two-column-browse-results-renderer #primary
+  ytd-rich-grid-renderer {
+  display: none !important;
+}
+
+/* End-screen suggested video cards inside the player */
+html.fg-hide-recommendations .ytp-endscreen-content,
+html.fg-hide-recommendations .ytp-ce-element {
+  display: none !important;
+}
+
+/* ---------- Hide Comments ---------- */
+html.fg-hide-comments ytd-comments#comments {
+  display: none !important;
+}
+
+/* ---------- Focus Mode badge ---------- */
+#focusguard-badge {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 999998;
+  background: #ef4444;
+  color: white;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  opacity: 0.92;
+}

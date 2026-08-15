@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>YouTube FocusGuard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-row">
+        <div class="logo-badge">FG</div>
+        <div>
+          <h1>YouTube FocusGuard</h1>
+          <p class="tagline">Stay focused. Watch intentionally.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Focus Mode master switch -->
+    <section class="card focus-mode-card" id="focusModeCard">
+      <div class="focus-mode-row">
+        <div>
+          <span class="card-title">Focus Mode</span>
+          <p class="card-subtitle" id="focusModeStatusText">Off</p>
+        </div>
+        <label class="switch switch-lg">
+          <input type="checkbox" id="focusModeToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Individual settings -->
+    <section class="card">
+      <h2 class="section-title">Blocking Settings</h2>
+
+      <div class="setting-row">
+        <div class="setting-label">
+          <span>Block Shorts</span>
+          <span class="setting-desc">Hide Shorts shelves &amp; pages</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="blockShortsToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-label">
+          <span>Hide Recommendations</span>
+          <span class="setting-desc">Homepage &amp; related videos</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="hideRecommendationsToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-label">
+          <span>Block Autoplay</span>
+          <span class="setting-desc">Stop auto-play of next video</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="blockAutoplayToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-label">
+          <span>Hide Comments</span>
+          <span class="setting-desc">Hide the comments section</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="hideCommentsToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Focus Timer -->
+    <section class="card timer-card">
+      <h2 class="section-title">Focus Timer</h2>
+
+      <div class="timer-display" id="timerDisplay">25:00</div>
+      <p class="timer-state" id="timerStateText">Ready</p>
+
+      <div class="preset-row">
+        <button class="preset-btn" data-minutes="15">15m</button>
+        <button class="preset-btn" data-minutes="25">25m</button>
+        <button class="preset-btn" data-minutes="45">45m</button>
+        <button class="preset-btn" data-minutes="60">60m</button>
+      </div>
+
+      <div class="custom-row">
+        <input type="number" id="customMinutes" min="1" max="240" placeholder="Custom minutes" />
+        <button class="btn-secondary" id="setCustomBtn">Set</button>
+      </div>
+
+      <div class="timer-controls">
+        <button class="btn-primary" id="startBtn">Start</button>
+        <button class="btn-secondary" id="pauseResumeBtn" disabled>Pause</button>
+        <button class="btn-secondary" id="resetBtn">Reset</button>
+      </div>
+    </section>
+
+    <!-- Footer actions -->
+    <footer class="footer">
+      <button class="btn-danger-outline" id="resetSettingsBtn">Reset Settings</button>
+      <p class="footer-note">Settings sync automatically and persist across restarts.</p>
+    </footer>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
